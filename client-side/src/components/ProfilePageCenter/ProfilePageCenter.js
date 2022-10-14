@@ -4,9 +4,12 @@ import "./ProfilePageCenter.scss";
 
 const ProfilePageCenter = () => {
   return (
-    <div className="ppc">
+    <div className="ppc"> 
       <ProfileCard />
-      <Posts />
+      <div className="ppc__centerpart">
+        <h3>Your posts only: </h3>
+        <Posts />
+      </div>
     </div>
   );
 };

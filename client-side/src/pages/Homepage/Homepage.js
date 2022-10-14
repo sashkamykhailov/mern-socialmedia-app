@@ -8,7 +8,10 @@ const Homepage = () => {
   return (
     <div className="homepage">
       <ProfilePart />
-      <Posts />
+      <div className="homepage__centerpart">
+        <h3>Live feed: Your posts and posts of people you are following</h3>
+        <Posts />
+      </div>
       <RightSide />
     </div>
   );

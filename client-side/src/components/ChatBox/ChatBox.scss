@@ -20,7 +20,6 @@
     &__controllers {
         padding-top: 20px;
         padding-bottom: 20px;
-        background-color: white;
         border-bottom-left-radius: 30px;
         border-bottom-right-radius: 30px;
         display: flex;
@@ -73,16 +72,14 @@
 
     &__messages-cover {
         max-height: 800px;
-        overflow-y: scroll;
-        background: white;
+        overflow-y: hidden;
+        overflow-x: hidden;
     }
     
 }
 
 
 .message {
-    display: block;
-    background-color: rgb(255, 164, 164);
     width: 30%;
     height: 100%;
     border-radius: 20px;
@@ -90,13 +87,32 @@
     padding: 5px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    width: 100%;
 }
 
 .own {
-    background-color: greenyellow;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    align-items: flex-end;
+    justify-content: center;
 }
 
+.message-box {
+    width: 50%;
+    border-radius: 8px;
+}
+
+.own-color {
+    background-color: lightblue;
+}
+
+.sender-color {
+    background-color: rgb(251, 251, 214); 
+}
 
 .react-emoji {
     width: 80% !important;
 }
+

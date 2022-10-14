@@ -2,4 +2,13 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+
+  &__centerpart {
+    margin-top: 20px;
+  }
+  &__centerpart h3 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
 }

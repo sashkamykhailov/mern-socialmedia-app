@@ -5,7 +5,7 @@ import {format} from 'timeago.js'
 import './ChatBox.scss'
 import InputEmoji from 'react-input-emoji'
 
-const ChatBox = ({chat, currentUser}) => {
+const ChatBox = ({chat, currentUser, online}) => {
 
   const [userData, setUserData] = useState(null)
   const [messages, setMessages] = useState([])
@@ -31,12 +31,11 @@ const ChatBox = ({chat, currentUser}) => {
     }
 
   },[chat, currentUser])
-
   //fetching messages
 
   useEffect(() => {
     const fetchMessages = async() => {
-
+        
         try {
             const {data} = await getMessages(chat._id)
             setMessages(data)
@@ -69,6 +68,11 @@ const ChatBox = ({chat, currentUser}) => {
     }
   }
 
+  useEffect(() => {
+    scrollRef.current?.scrollIntoView();
+  },[messages])
+
+
   return (
     <div className="chatbox">
         <div className="chatbox__container">
@@ -100,8 +104,15 @@ const ChatBox = ({chat, currentUser}) => {
                                 : 
                                 'message'}
                             >
-                                <div className='chatbox__text'>{message.text}</div>
-                                <div className='chatbox__time'>{format(message.createdAt)}</div>
+                                <div 
+                                className={message.senderId === currentUser 
+                                    ? 
+                                    "message-box own-color" 
+                                    : 
+                                    'message-box sender-color'}>
+                                    <div className='chatbox__text'>{message.text}</div>
+                                    <div className='chatbox__time'>{format(message.createdAt)}</div>
+                                </div>
                             </div>
                         )
                     })}

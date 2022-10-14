@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
  
 const Authorization = () => {
+  
   const initialState = {
     firstname: "",
     lastname: "",
@@ -12,13 +13,15 @@ const Authorization = () => {
     password: "",
     confirmpass: "",
   };
-  const loading = useSelector((state) => state.authReducer.loading);
+
   const error = useSelector((state) => state.authReducer.error);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   const [isSignUp, setIsSignUp] = useState(false);
   const [data, setData] = useState(initialState);
-  const [loginError, setLoginError] = useState(null)
+  const [loginError, setLoginError] = useState(error)
   const [confirmPass, setConfirmPass] = useState(true);
 
   // Reset Form
@@ -41,8 +44,11 @@ const Authorization = () => {
         ? dispatch(signUp(data, navigate))
         : setConfirmPass(false);
     } else {
-      console.log(error)
-      dispatch(logIn(data, navigate));
+          try {
+            dispatch(logIn(data, navigate));
+          } catch (error) {
+            console.log(loginError);
+          }
     }
   };
 
@@ -146,9 +152,8 @@ const Authorization = () => {
               <button
                 className="button infoButton"
                 type="Submit"
-                disabled={loading}
               >
-                {loading ? "Loading..." : isSignUp ? "SignUp" : "Login"}
+                {isSignUp ? "SignUp" : "Login"}
               </button>
             </div>
           </div>

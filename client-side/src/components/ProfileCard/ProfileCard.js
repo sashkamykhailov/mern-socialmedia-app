@@ -26,11 +26,6 @@ const ProfileCard = () => {
         <div className="profilechild__following">Following: {user.following.length}</div>
         <div className="profilchilde__posts">Number of posts: {posts.filter(post => post.userId === user._id).length}</div>
       </div>
-      <div className="profilechild__followers-info">
-        <Link className='profilechild__linkR' to={'/profile/' + user._id}>
-          <button>My Profile</button>
-        </Link>
-      </div>
     </div>
   );
 };

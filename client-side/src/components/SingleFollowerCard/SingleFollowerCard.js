@@ -19,7 +19,7 @@ const SingleFollowerCard = ({ person }) => {
   };
   return (
     <div className="follower">
-      <div>
+      <div className="follower__box" >
         <img
           src={
             person.profilePicture

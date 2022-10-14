@@ -41,7 +41,7 @@ const Conversation = ({data, currentUserId, online}) => {
               {userData?.firstname} {userData?.lastname}
           </div>
           <div className='conversation__online'>
-          {online ? 'Offline' : 'Online'}
+          {online ? 'Online' : 'Offline'}
           </div>
         </div>
     </div>

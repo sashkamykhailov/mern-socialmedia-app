@@ -10,7 +10,12 @@ export const createChat = async (req, res) => {
   } catch (error) {
     res.status(500).json(error);
   }
+
+  chatGenerator.forEach(user, follower => {
+
+  })
 };
+
 
 export const userChats = async (req, res) => {
   try {
