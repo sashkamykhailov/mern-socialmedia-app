@@ -1,20 +1,22 @@
-:root {
-  --yellow: #f5c32c;
-  --orange: #fca61f;
-  --black: #242d49;
-  --gray: rgba(36, 45, 73, 0.65);
-  --profileShadow: 0px 4px 17px 2px rgba(0, 0, 0, 0.25);
-  --hrColor: #cfcdcd;
-  --cardColor: rgba(255, 255, 255, 0.64);
-  --buttonBg: linear-gradient(98.63deg, #f9a225 0%, #f95f35 100%);
-  --inputColor: rgba(40, 52, 62, 0.07);
-  --photo: #4CB256;
-  --video: #4A4EB7;
-  --location: #EF5757;
---shedule: #E1AE4A;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+
+
 .App {
-  display: flex;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  height: 100%;
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+  padding-bottom: 40px; 
 }

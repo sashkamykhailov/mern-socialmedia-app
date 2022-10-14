@@ -3,7 +3,7 @@ import "./Authorization.scss";
 import { logIn, signUp } from "../../redux/actions/AuthAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+ 
 const Authorization = () => {
   const initialState = {
     firstname: "",
@@ -13,12 +13,12 @@ const Authorization = () => {
     confirmpass: "",
   };
   const loading = useSelector((state) => state.authReducer.loading);
+  const error = useSelector((state) => state.authReducer.error);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isSignUp, setIsSignUp] = useState(false);
-
   const [data, setData] = useState(initialState);
-
+  const [loginError, setLoginError] = useState(null)
   const [confirmPass, setConfirmPass] = useState(true);
 
   // Reset Form
@@ -41,30 +41,30 @@ const Authorization = () => {
         ? dispatch(signUp(data, navigate))
         : setConfirmPass(false);
     } else {
+      console.log(error)
       dispatch(logIn(data, navigate));
     }
   };
 
   return (
     <div className="Auth">
-
-      <div className="a-left">
-        <div className="Webname">
-          <h1>ZKC Media</h1>
-          <h6>Explore the ideas throughout the world</h6>
+      <div className="Auth__container">
+      <div className="Auth__left">
+        <div className="Auth__webnames">
+          <h2>Sandbox Metaverse</h2>
+          <h4>Open your new world</h4>
         </div>
       </div>
 
-      <div className="a-right">
-        <form className="infoForm authForm" onSubmit={handleSubmit}>
-          <h3>{isSignUp ? "Register" : "Login"}</h3>
+      <div className="Auth__right">
+        <form className="Auth__form" onSubmit={handleSubmit}>
           {isSignUp && (
-            <div>
+            <div className='Auth__login'>
               <input
                 required
                 type="text"
                 placeholder="First Name"
-                className="infoInput"
+                className="Auth__infoInput"
                 name="firstname"
                 value={data.firstname}
                 onChange={handleChange}
@@ -73,7 +73,7 @@ const Authorization = () => {
                 required
                 type="text"
                 placeholder="Last Name"
-                className="infoInput"
+                className="Auth__infoInput"
                 name="lastname"
                 value={data.lastname}
                 onChange={handleChange}
@@ -81,22 +81,22 @@ const Authorization = () => {
             </div>
           )}
 
-          <div>
+          <div className='Auth__username'>
             <input
               required
               type="text"
               placeholder="Username"
-              className="infoInput"
+              className="Auth__infoInput Auth__infoInput-username"
               name="username"
               value={data.username}
               onChange={handleChange}
             />
           </div>
-          <div>
+          <div className='Auth__passwords'>
             <input
               required
               type="password"
-              className="infoInput"
+              className="Auth__infoInput"
               placeholder="Password"
               name="password"
               value={data.password}
@@ -106,7 +106,7 @@ const Authorization = () => {
               <input
                 required
                 type="password"
-                className="infoInput"
+                className="Auth__infoInput"
                 name="confirmpass"
                 placeholder="Confirm Password"
                 onChange={handleChange}
@@ -114,7 +114,7 @@ const Authorization = () => {
             )}
           </div>
 
-          <span
+          <div
             style={{
               color: "red",
               fontSize: "12px",
@@ -124,9 +124,10 @@ const Authorization = () => {
             }}
           >
             *Confirm password is not same
-          </span>
-          <div>
-            <span
+          </div>
+          <div className='Auth__credentials-part'>
+            <div
+              className="Auth__detection"
               style={{
                 fontSize: "12px",
                 cursor: "pointer",
@@ -138,18 +139,21 @@ const Authorization = () => {
               }}
             >
               {isSignUp
-                ? "Already have an account Login"
-                : "Don't have an account Sign up"}
-            </span>
-            <button
-              className="button infoButton"
-              type="Submit"
-              disabled={loading}
-            >
-              {loading ? "Loading..." : isSignUp ? "SignUp" : "Login"}
-            </button>
+                ? "Already have an account?"
+                : "Don't have an account?"}
+            </div>
+            <div className='Auth__credentials-btn'>
+              <button
+                className="button infoButton"
+                type="Submit"
+                disabled={loading}
+              >
+                {loading ? "Loading..." : isSignUp ? "SignUp" : "Login"}
+              </button>
+            </div>
           </div>
         </form>
+      </div>
       </div>
     </div>
   );

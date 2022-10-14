@@ -69,54 +69,52 @@ const ChatBox = ({chat, currentUser}) => {
     }
   }
 
-//   useEffect(() => {
-//     scrollRef.current.scrollIntoView({behavior: 'smooth'})
-//   }, [])
-
   return (
-    <div className="chat">
-        <div className="chat__container">
+    <div className="chatbox">
+        <div className="chatbox__container">
             {chat 
             ?
-            (<div className="chat__renderpart">
-            <div className="chat__header">
-                    <div className="chat__follower">
+            (<div className="chatbox__renderpart">
+            <div className="chatbox__header">
+                    <div className="chatbox__follower">
                     <img 
-                    className='conversation__image' 
+                    className='chatbox__image-sender' 
                     alt='speak'
                     src={userData?.profilePicture 
                         && process.env.REACT_APP_PUBLIC_FOLDER + userData.profilePicture}
                     />
-                    <div className='chat__info'>
+                    <div className='chatbox__info'>
                         {userData?.firstname} {userData?.lastname}
                     </div>
                 </div>
             </div>
-            <div className='chat__messages'>
-                {messages.map((message, i) => {
-                    return(
-                        <div key={i}
-                        ref={scrollRef}
-                        className={message.senderId === currentUser 
-                            ? 
-                            "message own" 
-                            : 
-                            'message'}
-                        >
-                            <div className='chat__text'>{message.text}</div>
-                            <div className='chat__time'>{format(message.createdAt)}</div>
-                        </div>
-                    )
-                })}
-            </div>
-            <div className='chat__controllers'>
-                <InputEmoji
-                value={newMessage}
-                onChange={handleChange}
-                />
-                <div className='chat__send-btn'>
-                    <button disabled={newMessage.length > 2 ? false : true} className="chat__sendbtn" onClick={handleSend}>Send</button>
+            <div className="chatbox__messages-cover">
+                <div className='chatbox__messages'>
+                    {messages.map((message, i) => {
+                        return(
+                            <div key={i}
+                            ref={scrollRef}
+                            className={message.senderId === currentUser 
+                                ? 
+                                "message own" 
+                                : 
+                                'message'}
+                            >
+                                <div className='chatbox__text'>{message.text}</div>
+                                <div className='chatbox__time'>{format(message.createdAt)}</div>
+                            </div>
+                        )
+                    })}
                 </div>
+            </div>
+            <div className='chatbox__controllers'>
+                    <InputEmoji
+                    value={newMessage}
+                    onChange={handleChange}
+                    />
+                    <div className='chatbox__send-btn'>
+                        <button disabled={newMessage.length > 2 ? false : true} className="chatbox__sendbtn" onClick={handleSend}>Send</button>
+                    </div>
             </div>
         </div>)
             : 

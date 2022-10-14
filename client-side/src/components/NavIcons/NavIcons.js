@@ -1,15 +1,17 @@
 import { Link } from "react-router-dom";
 import "./NavIcons.scss";
+import {AiOutlineHome, AiFillWechat} from 'react-icons/ai'
+
 
 const NavIcons = () => {
   return (
     <div className="navicon">
       <nav className="navicon__nav">
         <Link className="navicon__linkR" to='/home'>
-          <div>Home</div>
+          <AiOutlineHome className="navicon__icon"/>
         </Link>
         <Link className="navicon__linkR" to='/chat'>
-          <div>Chat</div>
+        <AiFillWechat className="navicon__icon"/>
         </Link>
       </nav>
     </div>

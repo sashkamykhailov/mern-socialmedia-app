@@ -1,4 +1,4 @@
-import LogoSearch from "../LogoSearch/LogoSearch";
+// import LogoSearch from "../LogoSearch/LogoSearch";
 import InfoCard from "../InfoCard/InfoCard";
 
 import "./ProfilPageLeftSide.scss";
@@ -7,7 +7,7 @@ import FollowersCard from "../FollowersCard/FollowersCard";
 const ProfilPageLeftSide = () => {
   return (
     <div className="pls">
-      <LogoSearch />
+      {/* <LogoSearch /> */}
       <InfoCard />
       <FollowersCard />
     </div>

@@ -1,7 +1,41 @@
 .sharedpost {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 30px;
+  padding: 20px;
 
   &__img {
-    width: 100px;
+    width: 200px;
+  }
+
+  &__reactions {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__likes-btn {
+    display: flex;
+    background: transparent;
+    border: none;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    margin-right: 20px;
+    background: transparent;
+    border: none;
   }
 }

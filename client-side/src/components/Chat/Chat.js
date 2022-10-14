@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react'
-import LogoSearch from '../LogoSearch/LogoSearch'
+// import LogoSearch from '../LogoSearch/LogoSearch'
 import {useSelector} from 'react-redux'
 import './Chat.scss'
 import { userChats } from '../../api/ChatRequests'
@@ -50,7 +50,7 @@ const Chat = () => {
 
         {/* Left side */}
         <div className="chat__leftside">
-            <LogoSearch />
+            {/* <LogoSearch /> */}
             <h4 className="chat__chatstitle">
                 Chats:
             </h4>

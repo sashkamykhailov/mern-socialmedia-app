@@ -1,7 +1,17 @@
-.followers {
+.followersCard {
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 
   &__more {
     margin-top: 30px;
+  }
+
+  &__h3 {
+    margin-bottom: 20px;
   }
 }

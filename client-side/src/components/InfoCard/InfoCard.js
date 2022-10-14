@@ -5,6 +5,7 @@ import * as UserApi from "../../api/UserRequests"
 import ChangePersonalInfo from "../MODALS/ChangePersonalInfo/ChangePersonalInfo";
 import {logout} from '../../redux/actions/AuthAction'
 import "./InfoCard.scss";
+import {BsPencil} from 'react-icons/bs'
 
 const InfoCard = () => {
 
@@ -40,13 +41,13 @@ const InfoCard = () => {
       <div className="info__correction">
         <div className="info__title">Profile info:</div>
         {user._id === profileUserId ?( <div className="info__change" onClick={() => setModalOpen(true)}>
-          Change information*
+          Change information <BsPencil/>
         </div>) : null}
         <ChangePersonalInfo modalOpen={modalOpen} setModalOpen={setModalOpen} data={user} />
       </div>
-      <div className="info__status">Status: {profileUser.relationship ? profileUser.relationship: 'No information'}</div>
-      <div className="info__lives">Lives: {profileUser.livesin  ? profileUser.livesin: 'No information'}</div>
-      <div className="info__works">Works: {profileUser.worksAt  ? profileUser.worksAt: 'No information'}</div>
+      <div className="info__status info__about">Status: <span className='info__bold'>{profileUser.relationship ? profileUser.relationship: 'No information'}</span></div>
+      <div className="info__lives info__about">Lives: <span className='info__bold'>{profileUser.livesin  ? profileUser.livesin: 'No information'}</span></div>
+      <div className="info__works info__about">Works: <span className='info__bold'>{profileUser.worksAt  ? profileUser.worksAt: 'No information'}</span></div>
       <div className="info__logout">
         <button className="info__logout-btn" onClick={handleLogOut}>Logout</button>
       </div>

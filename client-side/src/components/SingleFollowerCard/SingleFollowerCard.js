@@ -21,19 +21,23 @@ const SingleFollowerCard = ({ person }) => {
     <div className="follower">
       <div>
         <img
-          src={person.profilePicture ? publicFolder + person.profilePicture : publicFolder + "defaultProfile.png"} 
+          src={
+            person.profilePicture
+            ? 
+            publicFolder + person.profilePicture 
+            : 
+            publicFolder + "defaultProfile.png"
+          } 
           alt="profile"
-          className="followerImage"
+          className="follower__image"
         />
-        <div className="name">
-          <span>{person.firstname}</span>
-          <span>@{person.username}</span>
+        <div className="follower__followername">
+          <div>{person.firstname}</div>
+          <div>@{person.username}</div>
         </div>
       </div>
       <button
-        className={
-          following ? "button fc-button UnfollowButton" : "button fc-button"
-        }
+        className="follower__unfollowButton"
         onClick={handleFollow}
       >
         {following ? "Unfollow" : "Follow"}

@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import {uploadImage, uploadPost} from '../../redux/actions/UploadAction'
+import  {FaImage}  from 'react-icons/fa';
+import  {AiOutlineDelete}  from 'react-icons/ai';
 
 import "./SharePart.scss";
 
@@ -58,40 +60,33 @@ const SharePart = () => {
     <div className="share">
       <div className="share__top">
         <div className="share__image">
-        <img className="share__img" alt='prfl' src={user.profilePicture ? serverPublicFolder + user.profilePicture : serverPublicFolder + "defaultProfile.png"}/>
-   
+        <img className="share__img" alt='prfl' 
+        src={user.profilePicture ? serverPublicFolder + user.profilePicture : serverPublicFolder + "defaultProfile.png"}/>
         </div>
         <input className="share__input" placeholder="What's happening?"  ref={desc} required/>
-      </div>
-      <div className="share__bot">
         <div className="share__photo" onClick={() => imageRef.current.click()}>
-          Photo
+          <FaImage />
         </div>
-        <div className="share__video">Video</div>
-        <div className="share__location">Location</div>
-        <div className="share__schedule">Schedule</div>
-
+        <div className="share__bot">
         <button className="share__share-btn"
         onClick={handleSubmit}
         >Share
         </button>
       </div>
+      </div>
+      
       <div className="share__none" style={{ display: "none" }}>
         <input type="file" ref={imageRef} onChange={onImageChange} />
       </div>
 
       {image && (
         <div className="share__preview">
-          <div className="share__cancel" onClick={() => setImage(null)}>
-            Remove
-          </div>
-          <div className="share__sharedimage">
-            <img
-              src={image.image}
-              alt="for-post"
-              className="share__sharedimg"
-            />
-          </div>
+          {image && (
+              <div className="share__previewImage">
+                <AiOutlineDelete onClick={() => setImage(null)} className='share__remove-icon'/>
+                <img src={URL.createObjectURL(image)} alt="preview" />
+              </div>
+        )}
         </div>
       )}
     </div>

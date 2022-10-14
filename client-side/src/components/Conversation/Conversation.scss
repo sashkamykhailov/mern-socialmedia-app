@@ -1,9 +1,21 @@
 .conversation {
-    
-    border: 1px solid red;
-    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
 
     &__image {
         width: 100px;
+    }
+    &__general {
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+
+    &__online {
+        font-weight: bold;
+        margin-top: 20px;
     }
 }

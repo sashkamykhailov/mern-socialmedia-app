@@ -36,11 +36,13 @@ const Conversation = ({data, currentUserId, online}) => {
             : 
              process.env.REACT_APP_PUBLIC_FOLDER + "defaultProfile.png" }
         />
-        <div className='conversation__info'>
-            {userData?.firstname} {userData?.lastname}
-        </div>
-        <div className='conversation__online'>
-         {online ? 'Online' : 'Offline'}
+        <div className='conversation__general'>
+          <div className='conversation__info'>
+              {userData?.firstname} {userData?.lastname}
+          </div>
+          <div className='conversation__online'>
+          {online ? 'Offline' : 'Online'}
+          </div>
         </div>
     </div>
   )

@@ -3,6 +3,7 @@ import ChangePersonalInfo from "../MODALS/ChangePersonalInfo/ChangePersonalInfo"
 import { getAllUser } from "../../api/UserRequests";
 import SingleFollowerCard from "../SingleFollowerCard/SingleFollowerCard";
 import { useSelector } from "react-redux";
+import './FollowersCard.scss'
 
 const FollowersCard = () => {
 
@@ -18,8 +19,8 @@ const FollowersCard = () => {
   }, []);
 
   return ( 
-    <div className="FollowersCard">
-      <h3>People you may know</h3>
+    <div className="followersCard">
+      <h3 className="followersCard__h3">People around:</h3>
 
       {persons.map((person, id) => {
         if (person._id !== user._id) return <SingleFollowerCard person={person} key={id} />;

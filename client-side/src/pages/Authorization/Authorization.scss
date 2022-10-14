@@ -1,15 +1,95 @@
-.registration {
-  margin-top: 200px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.Auth {
+  margin-top: 15vh;
   width: 100%;
-}
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 
-.login {
-  margin-top: 200px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 30px 80px 30px;
+    border-radius: 15px;
+    background: rgba(255, 238, 238, 0.392);
+  }
+
+  &__webnames {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__webnames h2 {
+    margin-bottom: 10px;
+    color:#0059ff;
+  }
+
+  &__left, &__right {
+    margin: 0px 30px 0px 30px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+  }
+  &__credentials-btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__username {
+    margin: 10px 0px 10px 0px;
+  }
+
+  &__username, &__infoInput-username {
+    width: 100%;
+    display: flex;
+  }
+
+  &__credentials-part, &__credentials-btn {
+    margin-top: 20px;
+  }
+
+  &__infoInput {
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 5px 0px 10px 10px;
+    outline: none;
+    background-color: transparent;
+    margin: 0px 5px 5px 0px;
+    background: linear-gradient(to right, #fa2622, #ff5d93, #9051fe, #2196f3, #17e4ff, #56f65e, #f0ff48, #fe9e03, #ff5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__credentials-btn, &__credentials-btn button {
+    width: 100%;
+  }
+
+  &__credentials-btn button {
+    padding: 10px;
+    border: none;
+    background-color: rgb(122, 251, 71);
+    border-radius: 7px;
+  }
+
 }

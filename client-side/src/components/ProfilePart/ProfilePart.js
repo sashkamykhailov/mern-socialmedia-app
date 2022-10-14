@@ -1,5 +1,5 @@
 import FollowersCard from "../FollowersCard/FollowersCard";
-import LogoSearch from "../LogoSearch/LogoSearch";
+// import LogoSearch from "../LogoSearch/LogoSearch";
 import ProfileCard from "../ProfileCard/ProfileCard";
 
 import "./ProfilePart.scss";
@@ -7,7 +7,7 @@ import "./ProfilePart.scss";
 const ProfilePart = () => {
   return (
     <div className="profile">
-      <LogoSearch />
+      {/* <LogoSearch /> */}
       <ProfileCard />
       <FollowersCard />
     </div>
